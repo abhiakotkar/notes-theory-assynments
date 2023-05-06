@@ -1,0 +1,101 @@
+1) Basic
+a) "SELECT" and "WHERE" CLAUSE
+ select (*) from (table) where (any satisfy conditions)
+"*" is for to fetch whole column in table
+OR (for single column & muliple column respectively)
+Select (any colm) from (table) where (condition)
+select (colm1,colm2,colm3) from (table) where (condition)
+
+b)Aggregate funtions for group by and having command
+are like -> count,max,min
+example: select colm1,colm2,count(colm3)
+from (table)
+where (any_condition)
+group by colm1,colm2
+The GROUP BY statement groups rows that have the same values into summary rows
+OR
+SELECT col1, agregate_fn(col2)
+FROM table_name
+WHERE condition
+GROUP BY col1
+ORDER BY col2
+
+HAVING
+We use having clause for giving condition if there is an aggregate function
+because where clause cannot be use for aggregate funtion
+like
+SELECT col1(s)
+FROM table_name
+WHERE condition
+GROUP BY col1(s)
+HAVING condition
+ORDER BY col1(s)
+
+
+3. DISTINCT, COUNT DISTINCT 
+for producing useful distinct lists and distinct aggregates
+
+COUNT DISTINCT function returns the (counting number) number 
+of unique values in the column or  expression
+
+
+
+SQL COUNT DISTINCT
+SQL COUNT DISTINCT
+Introduction to SQL COUNT DISTINCT
+
+SELECT COUNT(DISTINCT(col name)) FROM table name
+
+Distinct removes the duplicate rows from the result
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+
+Strings and time conversions
+CONVERT(data_type(length), expression, style)
+
+its conversion of data type
+string to int or int to string
+example: Select convert(varchar,25.65)
+
+time conversion
+Convert an expression from one data type to another (datetime):
+SELECT CONVERT(datetime, '2017-08-25');
+Convert an expression from one data type to another (varchar):
+SELECT CONVERT(varchar, '2017-08-25', 101);
+
+6. UNION and UNION ALL.
+UNION:UNION operator is used to combine the result-set of two or more
+UNION only returns unique
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2
+
+OR
+SELECT column_1, column_2
+FROM table_1
+[WHERE condition]
+ 
+UNION 
+ 
+SELECT column_1, column_2
+FROM table_2
+[WHERE condition]
+
+UNION ALL:
+UNION ALL returns all records, including duplicates.
+SELECT column_1, column_2
+FROM table_1
+[WHERE condition]
+ 
+UNION ALL
+ 
+SELECT column_1, column_2
+FROM table_2
+[WHERE condition]
+
+
+
+
+
+
+
