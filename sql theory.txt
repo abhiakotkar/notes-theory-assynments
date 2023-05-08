@@ -1,4 +1,5 @@
-1) Basic
+1) BASIC
+
 a) "SELECT" and "WHERE" CLAUSE
  select (*) from (table) where (any satisfy conditions)
 "*" is for to fetch whole column in table
@@ -94,7 +95,91 @@ FROM table_2
 [WHERE condition]
 
 
+INTERMEDIATE:
+1. DML/DDL/DCL concepts
 
+1- DML -> DATA MANiPULATION LANGUAGE
+To modify the database objects
+Example: INSERT,UPDATE,DELETE
+
+2. DDL -> DATA DEFINITIION LANGUAGE
+To create & modify database objects
+Example: CREATE,DROP,ALTER,TRUNCATE
+
+3. DCL -> DATA CONTROL LANGUAGE
+To give rights, permissions, and other controls of the database system.
+Example: REVOKE, GRANT
+
+2.Handling NULLs creatively (e.g. with COALESCE)
+The COALESCE function accepts a number of arguments and 
+returns the first non-NULL argument.
+Example: COALESCE(argument1, argument2,...); 
+or>>     SELECT COALESCE(NULL,'Not NULL','OK'); -- return Not NULL
+
+
+3. Subqueries and the impact of subqueries on efficiency of the query
+>A subquery is a query that appears inside another query statement
+Example>
+SELECT column FROM  table
+WHERE  column OPERATOR (
+  SELECT column FROM table
+);
+
+Subqueries improve query readability as opposed to 
+joins by structuring them into isolated parts. 
+It is easy to understand and maintain subqueries easily. 
+Subqueries can replace complex joins and unions.
+
+4. Temporary tables
+Temporary Tables are most likely as Permanent Tables. 
+Temporary Tables are Created in TempDB and 
+are automatically deleted as soon as the last connection is terminated.
+
+To Create Temporary Table:
+
+CREATE TABLE #EmpDetails (id INT, name VARCHAR(25))  
+To Insert Values Into Temporary Table:
+
+INSERT INTO #EmpDetails VALUES (01, 'Lalit'), (02, 'Atharva') 
+To Select Values from Temporary Table:
+
+5.Self joins
+The SQL Self Join is used to join a table to itself as 
+if the table were two tables.
+Example
+SELECT column_name(s)
+FROM table1 a, table1 b
+WHERE a.common_field = b.common_field;
+
+6.Window functions like PARTITION, LEAD, LAG, NTILE
+You can use LAG or LEAD to create columns that pull values 
+from other rows—all you need to do is enter which 
+column to pull from and how many rows away you'd like to do the pull.
+LAG pulls from previous rows and LEAD pulls from following rows:
+
+LEAD:
+LEAD(return_value, offset [, default])  
+OVER (
+   [PARTITION BY partition_expression]
+   ORDER BY sort_expression [ASC | DESC]
+)
+
+LAG:
+LAG (scalar_expression [,offset] [,default])  
+OVER ( [ partition_by_clause ] order_by_clause )
+
+NTILE:
+NTILE() function assigns a number_expression for every row in a group, 
+to which the row belongs
+
+syntax:
+NTILE(number_expression) OVER (
+   [PARTITION BY partition_expression ]
+   ORDER BY sort_expression [ASC | DESC]
+)
+
+7. UDFs (user defined functions)
+8. Use of indexes in querying to make operations faster.
 
 
 
