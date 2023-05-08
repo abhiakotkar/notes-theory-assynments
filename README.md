@@ -1,2 +1,3 @@
-# SQL
-sql theory sql query /mysql
+#
+notes-theory-assynments
+ 
